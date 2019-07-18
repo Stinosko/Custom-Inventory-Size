@@ -168,7 +168,6 @@ public:
 				SDK::UFGInventoryComponent* inventory2 = aCharachter.GetInventory();
 
 
-
 				int size = inventory.GetSizeLinear();
 				LOG("Current size:");
 				LOG(size);
