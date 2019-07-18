@@ -167,31 +167,29 @@ public:
 
 
 				int size = inventory->GetSizeLinear();
-				LOG(size);
-				
-
 				int newsize = size+1;
-				LOG(newsize);
-				LOG("To:");
+
+				std::string message = "Changing size from " + std::to_string(size) + " => " + std::to_string(newsize);
+				LOG(message);
+
 				inventory->Resize(newsize);
 			}
 			if (GetAsyncKeyState('L')) {
 				SDK::AFGCharacterPlayer aCharachter = *Functions::getPlayerCharacter();
-				
 				SDK::UFGInventoryComponent* inventory = aCharachter.GetInventory();
 
 				int size = inventory->GetSizeLinear();
-				LOG("Current size:");
-				LOG(size);
 				int newsize = size-1;
-
+				//Preventing a error with a inventory of 0
 				if (newsize == 0) {
 					newsize = 1;
 				};
 
+				std::string message = "Changing size from " + std::to_string(size) + " => " + std::to_string(newsize);
+				LOG(message);
+
 				inventory->Resize(newsize);
-				LOG("To:");
-				LOG(newsize);
+
 			}
 			return false;
 		});
